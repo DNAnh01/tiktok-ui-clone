@@ -27,6 +27,12 @@
     margin-left: 8px;
 }
 
+.icon {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+}
+
 // Button types
 .rounded {
     border-radius: 999px;
@@ -60,6 +66,12 @@
     }
 }
 
+.text {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 // Button size
 
 .small {
@@ -70,10 +82,4 @@
 .large {
     min-width: 148px;
     padding: 14px 16px;
-}
-
-.text {
-    &:hover {
-        text-decoration: underline;
-    }
 }
