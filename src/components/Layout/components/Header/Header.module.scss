@@ -13,6 +13,7 @@
 .inner {
     height: 100%;
     width: var(--default-layout-width, 1150px);
+    padding: 0 var(--default-layout-horizontal-spacer);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -112,6 +113,8 @@
 }
 
 .action-btn {
+    display: flex;
+    justify-content: center;
     background-color: transparent;
     color: #161823;
     font-size: 2.2rem;

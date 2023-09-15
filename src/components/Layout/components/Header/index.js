@@ -10,7 +10,6 @@ import {
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
-    faCloudArrowUp,
     faUser,
     faCoins,
     faGear,
@@ -26,8 +25,10 @@ import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import Image from '~/components/Image';
 
 import Button from '~/components/Button';
+import { UploadIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -76,7 +77,7 @@ function Header() {
         switch (menuItem.type) {
             case 'language':
                 // Handle change language
-                console.log(menuItem);
+
                 break;
 
             default:
@@ -145,7 +146,7 @@ function Header() {
                     {currentUser ? (
                         <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                             <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faCloudArrowUp} />
+                                <UploadIcon />
                             </button>
                         </Tippy>
                     ) : (
@@ -158,10 +159,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://p16-sign-va.tiktokcdn.com/musically-maliva-obj/1a8e91ef4c661a64127b1b61b551816c~c5_720x720.jpeg?x-expires=1694329200&x-signature=MDTjZIIdTHER0y52ZcFlndg31lk%3D"
                                 alt="Do Nguyen Anh"
+                                fallback="https://img.freepik.com/premium-vector/avatar-profile-icon_188544-4755.jpg"
                             />
                         ) : (
                             <button className={cx('more-btn')}>

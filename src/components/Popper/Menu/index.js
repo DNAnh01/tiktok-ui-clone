@@ -11,17 +11,24 @@ import { useState } from 'react';
 const cx = classNames.bind(styles);
 const defaultFn = () => {};
 
+/**
+ *  The first time you hover over the parent menu, it is the first element of an original array.
+ *  When selecting an element in the parent array, a sub-array appears. Then, the entire sub-array
+ *  is treated as a single element and is pushed into the original array. Assuming there are grandchildren,
+ *  we push it into the third element of the array again.
+ *
+ *  And at the current moment, we always render the last element of the original array, and when we go back,
+ *  we only need to remove the last element.
+ */
+
 function Menu({ children, items = [], onChange = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
-    // console.log('🚀 ~ file: index.js:15 ~ Menu ~ history:', history);
 
     const currentMenu = history[history.length - 1];
-    // console.log('🚀 ~ file: index.js:18 ~ Menu ~ currentMenu:', currentMenu);
 
     const renderItems = () => {
         return currentMenu.data.map((item, index) => {
             const isParent = !!item.children;
-            // console.log('🚀 ~ file: index.js:20 ~ returncurrentMenu.data.map ~ isParent:', item, isParent);
 
             return (
                 <MenuItem
@@ -29,7 +36,9 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                     data={item}
                     onClick={() => {
                         if (isParent) {
-                            setHistory((prev) => [...prev, item.children]);
+                            setHistory((prev) => {
+                                return [...prev, item.children];
+                            });
                         } else {
                             onChange(item);
                         }
