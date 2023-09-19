@@ -54,7 +54,19 @@
     top: 50%;
     transform: translateY(-50%);
     color: rgba(22, 24, 35, 0.34);
-    // display: none;
+}
+
+.loading {
+    animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
 }
 
 .search-btn {
