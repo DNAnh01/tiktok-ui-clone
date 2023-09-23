@@ -142,9 +142,9 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://p16-sign-va.tiktokcdn.com/musically-maliva-obj/1a8e91ef4c661a64127b1b61b551816c~c5_720x720.jpeg?x-expires=1694329200&x-signature=MDTjZIIdTHER0y52ZcFlndg31lk%3D"
+                                src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-1024.png"
                                 alt="Do Nguyen Anh"
-                                fallback="https://img.freepik.com/premium-vector/avatar-profile-icon_188544-4755.jpg"
+                                fallback={images.noImage}
                             />
                         ) : (
                             <button className={cx('more-btn')}>
