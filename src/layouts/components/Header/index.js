@@ -107,7 +107,6 @@ function Header() {
                     </Link>
                 </div>
 
-                {/* Search */}
                 <Search />
 
                 <div className={cx('actions')}>
