@@ -1,7 +1,6 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faSignIn,
     faEllipsisVertical,
     faEarthAsia,
     faCircleQuestion,
@@ -112,17 +111,17 @@ function Header() {
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Tippy delay={[0, 50]} content="Upload video" placement="bottom">
+                            <Tippy delay={[0, 40]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <UploadIcon />
                                 </button>
                             </Tippy>
-                            <Tippy delay={[0, 50]} content="Message" placement="bottom">
+                            <Tippy delay={[0, 40]} content="Message" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <MessageIcon />
                                 </button>
                             </Tippy>
-                            <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
+                            <Tippy delay={[0, 40]} content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <InboxIcon />
                                     <span className={cx('badge')}>12</span>
@@ -132,9 +131,7 @@ function Header() {
                     ) : (
                         <>
                             <Button text>Upload</Button>
-                            <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>
-                                Log in
-                            </Button>
+                            <Button primary>Log in</Button>
                         </>
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
